@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div id="chat-block">
+{#        <div id="create-chat">#}
+{#            <input type="text" id="chatName" placeholder="Введите имя чата">#}
+{#            <button onclick="createChat()">Создать чат</button>#}
+{#        </div>#}
+        <button id="startChatUserBtn">Создать чат</button>
+        <button id="createGroupChatBtn">Создать групповой чат</button>
+
+        <div id="chat-list">
+            <!-- Список чатов будет отображаться здесь -->
+        </div>
+    </div>
+    <div id="chat">
+        <div id="createGroupChatForm" style="display: none;">
+            <input type="text" id="chatName" placeholder="Введите название чата">
+            <select class="usersSelect" id="usersSelectMulti" multiple>
+{#                    <option value="user1">User 1</option>#}
+{#                    <option value="user2">User 2</option>#}
+{#                    <option value="user3">User 3</option>#}
+            </select>
+            <button id="createGroupChatOkBtn">OK</button>
+        </div>
+        <div id="startChatUserForm" style="display: none;">
+            <select class="usersSelect" id="userSelect">
+{#                    <option value="user1">User 1</option>#}
+{#                    <option value="user2">User 2</option>#}
+{#                    <option value="user3">User 3</option>#}
+            </select>
+            <button id="startChatUserOkBtn">OK</button>
+        </div>
+        <div id="messages">
+            <!-- Список сообщений в выбранном чате будет отображаться здесь -->
+        </div>
+        <div id="message-input">
+            <input type="text" id="message-text" placeholder="Введите сообщение">
+            <button onclick="sendMessage()">Отправить</button>
+        </div>
+    </div>
+{% endblock %}

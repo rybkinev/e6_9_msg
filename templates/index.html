@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E6.9</title>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <header id="top_menu">
+        <div class="container">
+            {% if user.is_authenticated %}
+                <div class="user-info">
+                    <img id="avatarImage" src="media/{{ user.account.avatar }}" alt=":)" onclick="openFileInput()">
+                    <input type="file" id="fileInput" style="display: none;" accept="image/*">
+                    <a>{{ user.username }}</a>
+                </div>
+
+                <a href="{% url 'logout' %}">
+                    Выйти
+                </a>
+            {% else %}
+                <a href="{% url 'login' %}">
+                    Авторизация
+                </a>
+            {% endif %}
+        </div>
+    </header>
+    <div id="app">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="{% static 'js/messages.js' %}"></script>
+    <script src="{% static 'js/chats.js' %}"></script>
+    <script src="{% static 'js/account.js' %}"></script>
+</body>
+</html>
