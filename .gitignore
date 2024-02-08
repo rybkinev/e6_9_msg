@@ -3,5 +3,4 @@
 .env
 **/migrations/
 assets
-db.sqlite3
 media
